@@ -3,82 +3,80 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produto_Categoria;
 
 class ProdutoCategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $categorias = Produto_Categoria::All();
+
+        return view('produtos.categorias.index', [
+          'categorias' => $categorias
+        ]);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('produtos.categorias.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+        'nome' => 'required'
+      ]);
+        $categoria = New Produto_Categoria;
+        $categoria->nome = $request->input('nome');
+
+        if ($categoria->save()) {
+          return redirect('produtos/categorias_produtos/')->with('sucess', 'Categoria adicionada com sucesso');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        //
+        $categoria = Produto_Categoria::findOrFail($id);
+        return view('produtos.categorias.show', [
+          'categoria' => $categoria
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $categoria = Produto_Categoria::findOrFail($id);
+        return view('produtos.categorias.edit', [
+          'categoria' => $categoria,
+          'id' => $id
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+          'nome' => 'required'
+        ]);
+
+        $categoria = Produto_Categoria::findOrFail($id);
+        $categoria->nome = $request->get('nome');
+
+        if ($categoria->update()) {
+          return redirect('produtos/categorias_produtos/')->with('sucess', 'Categoria atualizada com sucesso !');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $categoria = Produto_Categoria::findOrFail($id);
+        if($categoria->delete()){
+          return Redirect()->back()->with('sucess', 'Categoria deletada com sucesso');
+        }
     }
 }
