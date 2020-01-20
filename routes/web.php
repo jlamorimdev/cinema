@@ -16,4 +16,5 @@ Route::get('/', function () {
 });
 
 Route::resource('/filmes/categorias', 'FilmeCategoriaController');
+Route::resource('/filmes/filmes', 'FilmeController');
 Route::resource('/produtos/categorias_produtos', 'ProdutoCategoriaController');
