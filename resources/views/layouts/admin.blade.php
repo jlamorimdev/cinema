@@ -59,8 +59,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="filmes/filmes"><i class="fa fa-circle-o"></i> Filmes</a></li>
-                <li><a href="filmes/categoria"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                <li><a href="/filmes/filmes"><i class="fa fa-circle-o"></i> Filmes</a></li>
+                <li><a href="/filmes/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
               </ul>
             </li>
 
