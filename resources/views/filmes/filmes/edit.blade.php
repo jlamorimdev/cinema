@@ -13,7 +13,7 @@
 		</div>
 		@endif
 
-		<form method="POST" action="{{action('FilmeController@update', $id)}}">
+		<form method="POST" enctype="multipart/form-data" action="{{action('FilmeController@update', $id)}}">
 			@csrf
 			<div class="form-group">
 				<label for="nome">Nome</label>
@@ -59,9 +59,14 @@
 				<input type="file" class="form-control-file" id="banner" name="banner">
 			</div>
 
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Salvar</button>
+				<a class="btn btn-danger" href="/filmes/categorias/">Voltar</a>
+			</div>
+
 		</div>
 		<div class="form-group">
-			  <img src="{{url('img/filmes/'. $filme->banner)}}" alt="Texto" class="img-fluid img-thumbnail" width="300px" height="350px">
+			  <img src="{{url('img/filmes/'. $filme->banner)}}" margin-right="auto" alt="Texto" class="img-fluid img-thumbnail" width="300px" height="350px">
 		</div>
 	</div>
 
