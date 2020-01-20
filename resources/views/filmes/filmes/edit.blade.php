@@ -15,6 +15,8 @@
 
 		<form method="POST" enctype="multipart/form-data" action="{{action('FilmeController@update', $id)}}">
 			@csrf
+			<input type="hidden" name="_method" value="PATCH">
+
 			<div class="form-group">
 				<label for="nome">Nome</label>
 				<input type="text" name="nome" value="{{$filme->nome}}" class="form-control" placeholder="Nome...">
@@ -37,8 +39,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="nome">Duração</label>
-				<input type="time" name="nome" value="{{$filme->duracao}}" class="form-control">
+				<label for="duracao">Duração</label>
+				<input type="time" name="duracao" value="{{$filme->duracao}}" class="form-control">
 			</div>
 
 			<div class="form-group">
@@ -65,8 +67,8 @@
 			</div>
 
 		</div>
-		<div class="form-group">
-			  <img src="{{url('img/filmes/'. $filme->banner)}}" margin-right="auto" alt="Texto" class="img-fluid img-thumbnail" width="300px" height="350px">
+		<div class="content" >
+			  <img src="{{url('img/filmes/'. $filme->banner)}}"  style="margin-left: 100px;" alt="Texto" class="img-fluid img-thumbnail" width="300px" height="350px">
 		</div>
 	</div>
 
