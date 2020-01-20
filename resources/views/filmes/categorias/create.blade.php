@@ -2,8 +2,8 @@
 @section('conteudo')
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Novo Gênero</h3>
-				<form method="POST" action="{{route('filmes.categoria.store')}}" >
+			<h3>Nova Categoria para Filme</h3>
+				<form method="POST" action="{{route('categorias.store')}}" >
 					@csrf
 					<div class="form-group">
 						<label for="nome">Nome</label>

@@ -33,7 +33,7 @@ class FilmeCategoriaController extends Controller
         $categoria->nome = $request->input('nome');
         $categoria->save();
 
-        return redirect('filmes/categorias/create')->with('sucess', 'Categoria adicionada com sucesso');
+        return redirect('filmes/categorias/')->with('sucess', 'Categoria adicionada com sucesso');
     }
 
 
@@ -50,7 +50,8 @@ class FilmeCategoriaController extends Controller
     {
       $categoria = Filme_Categoria::findOrFail($id);
       return view('filmes.categorias.edit', [
-        'categoria' => $categoria
+        'categoria' => $categoria,
+        'id' => $id
       ]);
     }
 
@@ -63,12 +64,16 @@ class FilmeCategoriaController extends Controller
       $categoria->nome = $request->get('nome');
       $categoria->update();
 
-      return redirect('filmes/categorias/edit')->with('sucess', 'Categoria atualizada com sucesso');
+      if($categoria->save()){
+        return redirect('filmes/categorias/')->with('sucess', 'Categoria atualizada com sucesso');
+      }
     }
 
 
     public function destroy($id)
     {
-        //
+        $categoria = Filme_Categoria::findOrFail($id);
+        $categoria->delete();
+        return Redirect()->back()->with('sucess', 'Produto deletado com Sucesso');
     }
 }
