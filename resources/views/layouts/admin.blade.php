@@ -63,6 +63,17 @@
                 <li><a href="/filmes/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
               </ul>
             </li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>Produtos</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/produtos/produtos"><i class="fa fa-circle-o"></i>Produtos</a></li>
+                <li><a href="/produtos/categorias_produtos"><i class="fa fa-circle-o"></i>Categorias</a></li>
+              </ul>
+            </li>
 
           </ul>
         </section>
