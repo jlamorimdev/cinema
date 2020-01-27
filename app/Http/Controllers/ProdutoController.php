@@ -13,8 +13,10 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
+        $categorias = Produto_Categoria::all();
         return view('produtos.produtos.index', [
-          'produtos' => $produtos
+          'produtos' => $produtos,
+          'categorias' => $categorias
         ]);
     }
 
@@ -28,11 +30,12 @@ class ProdutoController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'nome' => 'required',
-          'valor' => 'required|numeric',
-          'categoria' => 'required'
-        ]);
+
+      $this->validate($request, [
+        'nome' => 'required',
+        'categoria_id' => 'required',
+        'valor' => 'required'
+      ]);
 
         $produto = new Produto;
         $produto->nome = $request->input('nome');
@@ -55,7 +58,7 @@ class ProdutoController extends Controller
     {
       $categorias = Produto_Categoria::all();
       $produto = Produto::FindOrFail($id);
-      return view('produtos.produtos.create', [
+      return view('produtos.produtos.edit', [
         'categorias' => $categorias,
         'produto' => $produto
       ]);
@@ -66,9 +69,9 @@ class ProdutoController extends Controller
       $this->validate($request, [
         'nome' => 'required',
         'valor' => 'required|numeric',
-        'categoria' => 'required'
+        'categoria_id' => 'required'
       ]);
-
+      
       $produto->nome = $request->get('nome');
       $produto->valor = $request->get('valor');
       $produto->categoria = $request->get('categoria_id');
