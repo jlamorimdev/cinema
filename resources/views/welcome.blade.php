@@ -1,4 +1,4 @@
 @extends('layouts.admin')
 @section('conteudo')
-<h1>Bem-vindo</h1>
+<h2>Bem-vindo</h2>
 @stop
