@@ -19,3 +19,4 @@ Route::resource('/filmes/categorias', 'FilmeCategoriaController');
 Route::resource('/filmes/filmes', 'FilmeController');
 Route::resource('/produtos/categorias_produtos', 'ProdutoCategoriaController');
 Route::resource('/produtos/produtos', 'ProdutoController');
+Route::resource('/salas', 'SalaController');
