@@ -54,26 +54,27 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
+                <i class="fa fa-film"></i>
                 <span>Cinema</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/filmes/filmes"><i class="fa fa-circle-o"></i> Filmes</a></li>
-                <li><a href="/filmes/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                <li><a href="/filmes/filmes"><i class="fa fa-circle-o text-yellow"></i> Filmes</a></li>
+                <li><a href="/filmes/categorias"><i class="fa fa-circle-o text-blue"></i> Categorias</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
+                <i class="fa fa-tags"></i>
                 <span>Produtos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/produtos/produtos"><i class="fa fa-circle-o"></i>Produtos</a></li>
-                <li><a href="/produtos/categorias_produtos"><i class="fa fa-circle-o"></i>Categorias</a></li>
+                <li><a href="/produtos/produtos"><i class="fa fa-circle-o text-red"></i>Produtos</a></li>
+                <li><a href="/produtos/categorias_produtos"><i class="fa fa-circle-o text-blue"></i>Categorias</a></li>
               </ul>
             </li>
+            <li><a href="/salas/"><i class="fa fa-institution"></i> <span>Salas</span></a></li>
 
           </ul>
         </section>
