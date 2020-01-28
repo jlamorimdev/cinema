@@ -71,7 +71,8 @@ class ProdutoController extends Controller
         'valor' => 'required|numeric',
         'categoria_id' => 'required'
       ]);
-      
+
+      $produto = Produto::FindOrFail($id);
       $produto->nome = $request->get('nome');
       $produto->valor = $request->get('valor');
       $produto->categoria = $request->get('categoria_id');
