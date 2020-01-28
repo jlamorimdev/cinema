@@ -27,7 +27,7 @@
 			</div>
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Salvar</button>
-				<a class="btn btn-danger" href="/filmes/categorias/">Voltar</a>
+				<a class="btn btn-danger" href="/produtos/categorias/">Voltar</a>
 			</div>
 		</div>
 	</div>
