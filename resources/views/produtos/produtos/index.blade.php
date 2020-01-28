@@ -42,7 +42,10 @@
 					@endif
 					@endforeach
 					<td>{{ $produto->valor}}</td>
-					<td>{{ $produto->imagem}}</td>
+					<td>
+						<img src="{{asset('img/produtos/' . $produto->imagem) }}" alt="{{$produto->imagem}}"
+						width="80px" height="80px" class="img-thumbmail">
+					</td>
 					<td>
 						<form method="POST" action="{{action('ProdutoController@destroy', $produto->id)}}">
 			        @csrf
@@ -57,4 +60,5 @@
 		</div>
 	</div>
 </div>
+{{$produtos->links()}}
 @stop
