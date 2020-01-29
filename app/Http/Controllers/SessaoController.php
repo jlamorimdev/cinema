@@ -45,13 +45,14 @@ class SessaoController extends Controller
 
     public function edit($id){
       $sessao = Sessao::findOrFail($id);
-      $filme = Filme::findOrFail($sessao->filme_id);
-      $sala = Sala::findOrFail($sessao->sala_id);
+      $filmes = Filme::all();
+      $salas = Sala::all();
 
       return view('sessao.edit', [
         'sessao' => $sessao,
-        'filme' => $filme,
-        'sala' => $sala
+        'filmes' => $filmes,
+        'salas' => $salas,
+        'id' => $id
       ]);
     }
 

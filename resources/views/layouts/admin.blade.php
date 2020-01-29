@@ -75,6 +75,7 @@
               </ul>
             </li>
             <li><a href="/salas/"><i class="fa fa-institution"></i> <span>Salas</span></a></li>
+            <li><a href="/salas/"><i class="fa fa-calendar"></i> <span>Sessões</span></a></li>
 
           </ul>
         </section>

@@ -13,5 +13,5 @@ class Sessao extends Model
       'filme_id',
       'sala_id',
       'horario'
-    ]
+    ];
 }
