@@ -38,6 +38,7 @@
 						<label for="banner">Banner</label>
 						<input type="file" class="form-control-file" id="banner" name="banner">
 					</div>
+					<br>
 
 					<div class="form-group">
 						<button class="btn btn-primary" type="submit">Salvar</button>

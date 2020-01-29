@@ -41,7 +41,7 @@
 					<td>{{ $categoria->nome}}</td>
 					@endif
 					@endforeach
-					<td>{{ $produto->valor}}</td>
+					<td>R${{ $produto->valor}}</td>
 					<td>
 						<img src="{{asset('img/produtos/' . $produto->imagem) }}" alt="{{$produto->imagem}}"
 						width="80px" height="80px" class="img-thumbmail">

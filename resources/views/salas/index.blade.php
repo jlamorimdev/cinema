@@ -34,7 +34,7 @@
 				<tr>
 					<td>{{ $sala->id}}</td>
 					<td>{{ $sala->nome}}</td>
-					<td>{{ $sala->capacidade}}</td>
+					<td>{{ $sala->capacidade}} vagas</td>
 					<td>
 						<form method="POST" action="{{action('SalaController@destroy', $sala->id)}}">
 			        @csrf

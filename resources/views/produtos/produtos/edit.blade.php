@@ -13,7 +13,7 @@
 		</div>
 		@endif
 
-		<form method="POST" action="{{action('Sessao@update', $produto->id)}}">
+		<form method="POST" enctype="multipart/form-data" action="{{action('ProdutoController@update', $produto->id)}}">
 			@csrf
 			<input type="hidden" name="_method" value="PATCH">
 
@@ -55,7 +55,7 @@
 
 		</div>
 		<div class="content" >
-			  <img src="{{url('img/produtos/'. $produto->imagem)}}"  style="margin-left: 100px;" alt="Texto" class="img-fluid img-thumbnail" width="300px" height="350px">
+			  <img src="{{url('img/produtos/'. $produto->imagem)}}"  style="margin-left: 100px;" alt="Imagem" class="img-fluid img-thumbnail" width="300px" height="350px">
 		</div>
 	</div>
 

@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Lista de Categorias <a href="/filmes/categorias/create"><button class="btn btn-info">Novo</button></a></h3>
+		<h3>Lista de Categorias para Filmes <a href="/filmes/categorias/create"><button class="btn btn-info">Novo</button></a></h3>
 		@if($message = Session::get('sucess'))
 		<div class="alert alert-success">
 		  {{$message}}

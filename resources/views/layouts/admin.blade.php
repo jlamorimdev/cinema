@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistema com Laravel - Hugo Vasconcelos</title>
+    <title>Painel Administrador - Cinema</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -19,13 +19,13 @@
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-black sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Cinema</b></span>
@@ -75,7 +75,7 @@
               </ul>
             </li>
             <li><a href="/salas/"><i class="fa fa-institution"></i> <span>Salas</span></a></li>
-            <li><a href="/salas/"><i class="fa fa-calendar"></i> <span>Sessões</span></a></li>
+            <li><a href="/sessao/"><i class="fa fa-calendar"></i> <span>Sessões</span></a></li>
 
           </ul>
         </section>
@@ -97,7 +97,7 @@
             <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Sistema de Vendas</h3>
+                  <h3 class="box-title">Painel Administrador - Cinema</h3>
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 
@@ -126,9 +126,9 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Versão</b> 5.3.0
+          <b>Versão</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2015-2020 <a href="www.hugocursos.com.br">Q-Cursos</a>.</strong> Todos os direitos reservados.
+        <strong>Copyright &copy; <a href="www.github.com/jlamorimdev/cinema/">João Lucas Amorim Dev</a>.</strong> Todos os direitos reservados.
       </footer>
 
 
