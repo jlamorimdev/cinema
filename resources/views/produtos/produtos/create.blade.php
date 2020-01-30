@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label for="valor">Preço</label>
-						<input type="numeric" name="valor" class="form-control">
+						<input type="text" name="valor" class="dinheiro form-control">
 					</div>
 
 					<div class="input-group mb-3">

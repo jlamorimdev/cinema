@@ -138,6 +138,10 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+    <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+<script>
+    $('.dinheiro').mask('#.##0,00', {reverse: true})
+</script>
 
   </body>
 </html>

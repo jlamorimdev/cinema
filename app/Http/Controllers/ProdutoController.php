@@ -38,8 +38,9 @@ class ProdutoController extends Controller
       ]);
 
         $produto = new Produto;
+        $preco = $request->input('valor');
         $produto->nome = $request->input('nome');
-        $produto->valor = $request->input('valor');
+        $produto->valor = str_replace(",",".",$preco);
         $produto->categoria = $request->input('categoria_id');
 
         if($request->hasFile('imagem')){

@@ -40,7 +40,7 @@
 
 			<div class="form-group">
 				<label for="valor">Preço</label>
-				<input type="numeric" name="valor" value="{{$produto->valor}}" class="form-control">
+				<input type="numeric" name="valor" value="{{str_replace('.', ',', $produto->valor)}}" class="form-control">
 			</div>
 
 			<div class="input-group mb-3">
