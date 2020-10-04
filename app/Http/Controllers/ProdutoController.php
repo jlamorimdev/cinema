@@ -44,7 +44,7 @@ class ProdutoController extends Controller
         $produto->categoria = $request->input('categoria_id');
 
         if($request->hasFile('imagem')){
-          $imagem = Input::file('imagem');
+          $imagem = \Request::file('imagem');
           $imagem->move(public_path() . '/img/produtos/', $imagem->getClientOriginalName());
           $produto->imagem = $imagem->getClientOriginalName();
         }
@@ -79,7 +79,7 @@ class ProdutoController extends Controller
       $produto->categoria = $request->get('categoria_id');
 
       if($request->hasFile('imagem')){
-        $imagem = Input::file('imagem');
+        $imagem = \Request::file('imagem');
         $imagem->move(public_path() . '/img/produtos/', $imagem->getClientOriginalName());
         $produto->imagem = $imagem->getClientOriginalName();
       }

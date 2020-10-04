@@ -45,7 +45,7 @@ class FilmeController extends Controller
         $filme->tresd = $request->input('tresd');
 
         if ($request->hasFile('banner')) {
-          $banner = Input::file('banner');
+          $banner = \Request::file('banner');
           $banner->move(public_path() . '/img/filmes/', $banner->getClientOriginalName());
           $filme->banner = $banner->getClientOriginalName();
         }
@@ -94,7 +94,7 @@ class FilmeController extends Controller
       $filme->tresd = $request->input('tresd');
 
       if ($request->hasFile('banner')) {
-        $banner = Input::file('banner');
+        $banner = \Request::file('banner');
         $banner->move(public_path() . '/img/filmes/', $banner->getClientOriginalName());
         $filme->banner = $banner->getClientOriginalName();
       }

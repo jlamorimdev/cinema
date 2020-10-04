@@ -13,7 +13,10 @@ class AddProductCategoryTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('produto_categoria', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome')->unique();
+        });
     }
 
     /**
@@ -23,6 +26,7 @@ class AddProductCategoryTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('produto_categoria');
+
     }
 }

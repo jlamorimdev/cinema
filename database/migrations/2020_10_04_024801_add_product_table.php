@@ -13,7 +13,17 @@ class AddProductTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('produto', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->float('valor');
+            $table->string('imagem');
+            $table->string('categoria');
+            $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->foreign('categoria_id')
+                ->references('id')
+                ->on('produto_categoria');
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class AddProductTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('produto');
     }
 }

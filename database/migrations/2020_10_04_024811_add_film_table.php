@@ -13,7 +13,15 @@ class AddFilmTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('filme', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->string('duracao');
+            $table->boolean('tresd');
+            $table->string('banner');
+            $table->integer('categoria_id');
+            
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class AddFilmTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('filme');
     }
 }

@@ -13,7 +13,10 @@ class AddFilmCategoryTable extends Migration
      */
     public function up()
     {
-        
+        Schema::create('filme_categoria', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome')->unique();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class AddFilmCategoryTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('filme_categoria');
     }
 }

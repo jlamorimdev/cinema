@@ -13,7 +13,11 @@ class AddSalaTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('sala', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nome');
+            $table->smallInteger('capacidade');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class AddSalaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('sala');
     }
 }
