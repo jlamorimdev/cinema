@@ -13,7 +13,7 @@ class AddFilmCategoryTable extends Migration
      */
     public function up()
     {
-        //
+        
     }
 
     /**

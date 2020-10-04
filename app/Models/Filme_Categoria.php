@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Produto_Categoria extends Model
+class Filme_Categoria extends Model
 {
-  protected $table = 'produto_categoria';
+  protected $table = 'filme_categoria';
 
   public $timestamps = false;
 

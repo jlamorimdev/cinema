@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Filme;
-use App\Filme_Categoria;
+use App\Models\Filme;
+use App\Models\Filme_Categoria;
 use Illuminate\Support\Facades\Input;
 
 class FilmeController extends Controller

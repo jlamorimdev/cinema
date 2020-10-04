@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Sessao;
-use App\Filme;
-use App\Sala;
+use App\Models\Sessao;
+use App\Models\Filme;
+use App\Models\Sala;
 
 
 class SessaoController extends Controller

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Filme_Categoria;
+use App\Models\Filme_Categoria;
 
 class FilmeCategoriaController extends Controller
 {
