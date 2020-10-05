@@ -19,7 +19,11 @@ class AddFilmTable extends Migration
             $table->string('duracao');
             $table->boolean('tresd');
             $table->string('banner');
-            $table->integer('categoria_id');
+            $table->unsignedBigInteger('categoria_id');
+
+            $table->foreign('categoria_id')
+                ->references('id')
+                ->on('filme_categoria');
             
         });
     }

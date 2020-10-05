@@ -18,8 +18,8 @@ class AddProductTable extends Migration
             $table->string('nome');
             $table->float('valor');
             $table->string('imagem');
-            $table->string('categoria');
-            $table->unsignedBigInteger('categoria_id')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+
             $table->foreign('categoria_id')
                 ->references('id')
                 ->on('produto_categoria');

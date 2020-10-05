@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Filme;
 
 class Filme_Categoria extends Model
 {
@@ -13,4 +14,9 @@ class Filme_Categoria extends Model
   protected $fillable = [
     'nome'
   ];
+
+  public function filmes()
+  {
+    $this->hasMany(Filme::class);
+  }
 }
