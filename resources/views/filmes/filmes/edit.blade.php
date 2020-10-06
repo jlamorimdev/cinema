@@ -60,8 +60,9 @@
 				<label for="banner">Banner</label>
 				<input type="file" class="form-control-file" id="banner" name="banner">
 			</div>
+			<br>
 
-			<div class="form-group">
+			<div class="form-group pt-5">
 				<button class="btn btn-primary" type="submit">Salvar</button>
 				<a class="btn btn-danger" href="{{route('filmes.index')}}">Voltar</a>
 			</div>

@@ -36,7 +36,7 @@ Route::prefix('filmes')->group(function () {
         Route::get('edit/{filme}', 'FilmeController@edit')->name('filmes.edit');
         Route::post('store', 'FilmeController@store')->name('filmes.store');
         Route::put('update/{filme}', 'FilmeController@update')->name('filmes.update');
-        Route::put('destroy/{filme}', 'FilmeController@destroy')->name('filmes.destroy');
+        Route::delete('destroy/{filme}', 'FilmeController@destroy')->name('filmes.destroy');
     });
 });
 

@@ -25,7 +25,7 @@ class FilmeController extends Controller
     return view('filmes.filmes.index', compact('filmes', 'categorias'));
   }
 
-  public function show($filme)
+  public function show(Filme $filme)
   {
     if (empty($filme)) {
       abort(404);
@@ -74,7 +74,7 @@ class FilmeController extends Controller
     }
   }
 
-  public function edit($filme)
+  public function edit(Filme $filme)
   {
     if (empty($filme)) {
       abort(404);
@@ -88,7 +88,7 @@ class FilmeController extends Controller
     ]);
   }
 
-  public function update(Request $request, $filme)
+  public function update(Request $request, Filme $filme)
   {
     if (empty($filme)) {
       abort(404);
@@ -116,7 +116,7 @@ class FilmeController extends Controller
     }
   }
 
-  public function destroy($filme)
+  public function destroy(Filme $filme)
   {
     if (empty($filme)) {
       abort(404);
