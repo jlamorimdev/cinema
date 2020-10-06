@@ -18,7 +18,7 @@
 		</div>
 		@endif
 
-		<form method="POST" action="{{action('ProdutoCategoriaController@update', $id)}}">
+		<form method="POST" action="{{action('ProdutoCategoriaController@update', $categoria)}}">
 			@csrf
 			<input type="hidden" name="_method" value="PATCH">
 			<div class="form-group mb-3">
@@ -27,7 +27,7 @@
 			</div>
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Salvar</button>
-				<a class="btn btn-danger" href="/produtos/categorias/">Voltar</a>
+				<a class="btn btn-danger" href="{{ url()->previous() }}">Voltar</a>
 			</div>
 		</div>
 	</div>

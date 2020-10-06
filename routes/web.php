@@ -25,7 +25,7 @@ Route::prefix('filmes')->group(function () {
         Route::get('create', 'FilmeCategoriaController@create')->name('categorias.create');
         Route::get('edit/{categoria}', 'FilmeCategoriaController@edit')->name('categorias.edit');
         Route::post('store', 'FilmeCategoriaController@store')->name('categorias.store');
-        Route::put('update/{categoria}', 'FilmeCategoriaController@update')->name('categorias.update');
+        Route::patch('update/{categoria}', 'FilmeCategoriaController@update')->name('categorias.update');
         Route::delete('destroy/{categoria}', 'FilmeCategoriaController@destroy')->name('categorias.destroy');
     });
 
@@ -35,7 +35,7 @@ Route::prefix('filmes')->group(function () {
         Route::get('create', 'FilmeController@create')->name('filmes.create');
         Route::get('edit/{filme}', 'FilmeController@edit')->name('filmes.edit');
         Route::post('store', 'FilmeController@store')->name('filmes.store');
-        Route::put('update/{filme}', 'FilmeController@update')->name('filmes.update');
+        Route::patch('update/{filme}', 'FilmeController@update')->name('filmes.update');
         Route::delete('destroy/{filme}', 'FilmeController@destroy')->name('filmes.destroy');
     });
 });
@@ -43,21 +43,23 @@ Route::prefix('filmes')->group(function () {
 Route::prefix('produtos')->group(function () {
 
     Route::prefix('categorias')->group(function () {
-        Route::get('/', 'ProdutoCategoriaController@index')->name('categorias_produtos.index');
-        Route::get('show/{id}', 'ProdutoCategoriaController@show')->name('categorias_produtos.show');
-        Route::get('create', 'ProdutoCategoriaController@create')->name('categorias_produtos.create');
-        Route::post('store', 'ProdutoCategoriaController@store')->name('categorias_produtos.store');
-        Route::put('update', 'ProdutoCategoriaController@update')->name('categorias_produtos.update');
-        Route::put('destroy', 'ProdutoCategoriaController@destroy')->name('categorias_produtos.destroy');
+        Route::get('/', 'ProdutoCategoriaController@index')->name('produtos.categorias.index');
+        Route::get('show/{categoria}', 'ProdutoCategoriaController@show')->name('produtos.categorias.show');
+        Route::get('create', 'ProdutoCategoriaController@create')->name('produtos.categorias.create');
+        Route::get('edit/{categoria}', 'ProdutoCategoriaController@edit')->name('produtos.categorias.edit');
+        Route::post('store', 'ProdutoCategoriaController@store')->name('produtos.categorias.store');
+        Route::patch('update/{categoria}', 'ProdutoCategoriaController@update')->name('produtos.categorias.update');
+        Route::delete('destroy/{categoria}', 'ProdutoCategoriaController@destroy')->name('produtos.categorias.destroy');
     });
 
     Route::prefix('produtos')->group(function () {
         Route::get('/', 'ProdutoController@index')->name('produtos.index');
-        Route::get('show/{filme}', 'ProdutoController@show')->name('produtos.show');
+        Route::get('show/{produto}', 'ProdutoController@show')->name('produtos.show');
         Route::get('create', 'ProdutoController@create')->name('produtos.create');
+        Route::get('edit/{produto}', 'ProdutoController@edit')->name('produtos.edit');
         Route::post('store', 'ProdutoController@store')->name('produtos.store');
-        Route::put('update/{filme}', 'ProdutoController@update')->name('produtos.update');
-        Route::put('destroy/{filme}', 'ProdutoController@destroy')->name('produtos.destroy');
+        Route::patch('update/{produto}', 'ProdutoController@update')->name('produtos.update');
+        Route::delete('destroy/{produto}', 'ProdutoController@destroy')->name('produtos.destroy');
     });
 });
 

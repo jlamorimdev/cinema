@@ -26,12 +26,7 @@
 				<label for="categoria">Categoria</label>
 				<select class="form-control" name="categoria_id">
 					@foreach($categorias as $categoria)
-					@if($categoria->id == $produto->categoria)
-					<option value="{{$categoria->id}}" selected>
-						{{$categoria->nome}}
-					</option>
-					@endif
-					<option value="{{$categoria->id}}">
+					<option value="{{$categoria->id}}" {{ ($categoria->id == $produto->categoria->id) ? 'selected' : null }}>
 						{{$categoria->nome}}
 					</option>
 					@endforeach
@@ -47,10 +42,11 @@
 				<label for="imagem">Imagem do Produto</label>
 				<input type="file" class="form-control-file" id="imagem" name="imagem">
 			</div>
+			<br>
 
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Salvar</button>
-				<a class="btn btn-danger" href="/produtos/produtos/">Voltar</a>
+				<a class="btn btn-danger" href="{{ url()->previous() }}">Voltar</a>
 			</div>
 
 		</div>

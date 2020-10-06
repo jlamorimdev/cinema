@@ -30,22 +30,17 @@ class FilmeController extends Controller
     if (empty($filme)) {
       abort(404);
     }
-    
+
     $categorias = $this->categoria->all();
 
-    return view('filmes.filmes.show', [
-      'categorias' => $categorias,
-      'filme' => $filme
-    ]);
+    return view('filmes.filmes.show', compact('filme', 'categorias'));
   }
 
   public function create()
   {
-    $categorias = Filme_Categoria::All();
-    
-    return view('filmes.filmes.create', [
-      'categorias' => $categorias
-    ]);
+    $categorias = $this->categoria->all();
+
+    return view('filmes.filmes.create', compact('categorias'));
   }
 
   public function store(Request $request)
@@ -69,17 +64,13 @@ class FilmeController extends Controller
       $filme->banner = $banner->getClientOriginalName();
     }
 
-    if ($filme->save()) {
-      return redirect('/filmes/filmes/')->with('sucess', 'Filme cadastrado com sucesso');
-    }
+    $filme->save();
+
+    return redirect('/filmes/filmes/')->with('sucess', 'Filme cadastrado com sucesso');
   }
 
   public function edit(Filme $filme)
   {
-    if (empty($filme)) {
-      abort(404);
-    }
-
     $categorias = Filme_Categoria::All();
 
     return view('filmes.filmes.edit', [
@@ -90,10 +81,6 @@ class FilmeController extends Controller
 
   public function update(Request $request, Filme $filme)
   {
-    if (empty($filme)) {
-      abort(404);
-    }
-
     $this->validate($request, [
       'nome' => 'required',
       'duracao' => 'required',
@@ -118,12 +105,8 @@ class FilmeController extends Controller
 
   public function destroy(Filme $filme)
   {
-    if (empty($filme)) {
-      abort(404);
-    }
+    $filme->delete();
 
-    if ($filme->delete()) {
-      return Redirect()->back()->with('sucess', 'Filme deletado com sucesso');
-    }
+    return Redirect()->back()->with('sucess', 'Filme deletado com sucesso');
   }
 }

@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Lista de Produtos <a href="/produtos/produtos/create"><button class="btn btn-info">Novo</button></a></h3>
+		<h3>Lista de Produtos <a href="{{route('produtos.create')}}"><button class="btn btn-info">Novo</button></a></h3>
 		@if($message = Session::get('sucess'))
 		<div class="alert alert-success">
 		  {{$message}}
@@ -36,11 +36,7 @@
 				<tr>
 					<td>{{ $produto->id}}</td>
 					<td>{{ $produto->nome}}</td>
-					@foreach($categorias as $categoria)
-					@if($produto->categoria == $categoria->id)
-					<td>{{ $categoria->nome}}</td>
-					@endif
-					@endforeach
+					<td>{{ $produto->categoria->nome}}</td>
 					<td>R${{str_replace('.', ',', $produto->valor)}}</td>
 					<td>
 						<img src="{{asset('img/produtos/' . $produto->imagem) }}" alt="{{$produto->imagem}}"
@@ -50,7 +46,7 @@
 						<form method="POST" action="{{action('ProdutoController@destroy', $produto->id)}}">
 			        @csrf
 			        <input type="hidden" name="_method" value="DELETE">
-			          <a href="{{URL::to('/produtos/produtos/'. $produto->id . '/edit')}}" class="btn btn-primary">Editar</a>
+			          <a href="{{route('produtos.edit', $produto)}}" class="btn btn-primary">Editar</a>
 			        <button class="btn btn-danger">Excluir </button>
 			      </form>
 					</td>

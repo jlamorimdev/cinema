@@ -7,76 +7,61 @@ use App\Models\Produto_Categoria;
 
 class ProdutoCategoriaController extends Controller
 {
+  private $categoria;
 
-    public function index()
-    {
-        $categorias = Produto_Categoria::All();
+  public function __construct(Produto_Categoria $categoria)
+  {
+    $this->categoria = $categoria;
+  }
 
-        return view('produtos.categorias.index', [
-          'categorias' => $categorias
-        ]);
+  public function index()
+  {
+    $categorias = $this->categoria->all();
 
-    }
-
-
-    public function create()
-    {
-        return view('produtos.categorias.create');
-    }
+    return view('produtos.categorias.index', compact('categorias'));
+  }
 
 
-    public function store(Request $request)
-    {
-      $this->validate($request, [
-        'nome' => 'required'
-      ]);
-        $categoria = New Produto_Categoria;
-        $categoria->nome = $request->input('nome');
-
-        if ($categoria->save()) {
-          return redirect('produtos/categorias_produtos/')->with('sucess', 'Categoria adicionada com sucesso');
-        }
-    }
+  public function create()
+  {
+    return view('produtos.categorias.create');
+  }
 
 
-    public function show($id)
-    {
-        $categoria = Produto_Categoria::findOrFail($id);
-        return view('produtos.categorias.show', [
-          'categoria' => $categoria
-        ]);
-    }
+  public function store(Request $request)
+  {
+    $request->validate(['nome' => 'required']);
+
+    $this->categoria->create($request->all());
+
+    return redirect()->route('produtos.categorias.index')->with('sucess', 'Categoria adicionada com sucesso');
+  }
 
 
-    public function edit($id)
-    {
-        $categoria = Produto_Categoria::findOrFail($id);
-        return view('produtos.categorias.edit', [
-          'categoria' => $categoria,
-          'id' => $id
-        ]);
-    }
+  public function show(Produto_Categoria $categoria)
+  {
+    return view('produtos.categorias.show', compact('categoria'));
+  }
 
 
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-          'nome' => 'required'
-        ]);
+  public function edit(Produto_Categoria $categoria)
+  {
+    return view('produtos.categorias.edit', compact('categoria'));
+  }
 
-        $categoria = Produto_Categoria::findOrFail($id);
-        $categoria->nome = $request->get('nome');
+  public function update(Request $request, Produto_Categoria $categoria)
+  {
+    $request->validate(['nome' => 'required']);
 
-        if ($categoria->update()) {
-          return redirect('produtos/categorias_produtos/')->with('sucess', 'Categoria atualizada com sucesso !');
-        }
-    }
+    $categoria->update($request->all());
 
-    public function destroy($id)
-    {
-        $categoria = Produto_Categoria::findOrFail($id);
-        if($categoria->delete()){
-          return Redirect()->back()->with('sucess', 'Categoria deletada com sucesso');
-        }
-    }
+    return redirect()->route('produtos.categorias.index')->with('sucess', 'Categoria atualizada com sucesso !');
+  }
+
+  public function destroy(Produto_Categoria $categoria)
+  {
+    $categoria->delete();
+
+    return Redirect()->back()->with('sucess', 'Categoria deletada com sucesso');
+  }
 }

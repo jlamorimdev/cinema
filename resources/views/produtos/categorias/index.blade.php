@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Lista de Categorias para Produtos <a href="/produtos/categorias_produtos/create"><button class="btn btn-info">Novo</button></a></h3>
+		<h3>Lista de Categorias para Produtos <a href="/produtos/categorias/create"><button class="btn btn-info">Novo</button></a></h3>
 		@if($message = Session::get('sucess'))
 		<div class="alert alert-success">
 		  {{$message}}
@@ -37,7 +37,7 @@
 						<form method="POST" action="{{action('ProdutoCategoriaController@destroy', $cat->id)}}">
 			        @csrf
 			        <input type="hidden" name="_method" value="DELETE">
-			          <a href="{{URL::to('/produtos/categorias_produtos/'. $cat->id . '/edit')}}" class="btn btn-primary">Editar</a>
+			          <a href="{{route('produtos.categorias.edit', $cat)}}" class="btn btn-primary">Editar</a>
 			        <button class="btn btn-danger">Excluir </button>
 			      </form>
 					</td>

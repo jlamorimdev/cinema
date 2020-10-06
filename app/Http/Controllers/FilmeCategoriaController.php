@@ -7,17 +7,19 @@ use App\Models\Filme_Categoria;
 
 class FilmeCategoriaController extends Controller
 {
-  public function __construct()
+
+  private $categoria;
+
+  public function __construct(Filme_Categoria $categoria)
   {
+    $this->categoria = $categoria;
   }
 
   public function index()
   {
-    $categorias = Filme_Categoria::all();
+    $categorias = $this->categoria->all();
 
-    return view('filmes.categorias.index', [
-      'categorias' => $categorias
-    ]);
+    return view('filmes.categorias.index', compact('categorias'));
   }
 
   public function create()
@@ -27,62 +29,44 @@ class FilmeCategoriaController extends Controller
 
   public function store(Request $request)
   {
-    $this->validate($request, ['nome' => 'required']);
+    $request->validate([
+      'nome' => 'required|string'
+    ]);
 
-    $categoria = new Filme_Categoria;
-    $categoria->nome = $request->input('nome');
-    $categoria->save();
+    $this->categoria->create($request->all());
 
-    return redirect('filmes/categorias/')->with('sucess', 'Categoria adicionada com sucesso');
+    return redirect()->route('categorias.index')->with('sucess', 'Categoria adicionada com sucesso');
   }
 
 
   public function show(Filme_Categoria $categoria)
   {
-    if (empty($categoria)) {
-      abort(404);
-    }
-
-    return view('filmes.categorias.show', [
-      'categoria' => $categoria
-    ]);
+    return view('filmes.categorias.show', compact('categoria'));
   }
 
 
   public function edit(Filme_Categoria $categoria)
   {
-    if (empty($categoria)) {
-      abort(404);
-    }
-
     return view('filmes.categorias.edit', compact('categoria'));
   }
 
 
   public function update(Request $request, Filme_Categoria $categoria)
   {
-    if (empty($categoria)) {
-      abort(404);
-    }
+    $request->validate([
+      'nome' => 'required|string'
+    ]);
 
-    $this->validate($request, ['nome' => 'required']);
+    $categoria->update($request->all());
 
-    $categoria->nome = $request->get('nome');
-    $categoria->update();
-
-    if ($categoria->save()) {
-      return redirect('filmes/categorias/')->with('sucess', 'Categoria atualizada com sucesso');
-    }
+    return redirect()->route('categorias.index')->with('sucess', 'Categoria atualizada com sucesso');
   }
 
 
   public function destroy(Filme_Categoria $categoria)
   {
-    if (empty($categoria)) {
-      abort(404);
-    }
-
     $categoria->delete();
+
     return Redirect()->back()->with('sucess', 'Produto deletado com Sucesso');
   }
 }

@@ -64,7 +64,7 @@
 
 			<div class="form-group pt-5">
 				<button class="btn btn-primary" type="submit">Salvar</button>
-				<a class="btn btn-danger" href="{{route('filmes.index')}}">Voltar</a>
+				<a class="btn btn-danger" href="{{ url()->previous() }}">Voltar</a>
 			</div>
 
 		</div>

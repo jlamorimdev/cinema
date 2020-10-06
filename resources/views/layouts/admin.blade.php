@@ -59,8 +59,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/filmes/filmes"><i class="fa fa-circle-o text-yellow"></i> Filmes</a></li>
-                <li><a href="/filmes/categorias"><i class="fa fa-circle-o text-blue"></i> Categorias</a></li>
+                <li><a href="{{route('filmes.index')}}"><i class="fa fa-circle-o text-yellow"></i> Filmes</a></li>
+                <li><a href="{{route('categorias.index')}}"><i class="fa fa-circle-o text-blue"></i> Categorias</a></li>
               </ul>
             </li>
             <li class="treeview">
@@ -70,8 +70,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/produtos/produtos"><i class="fa fa-circle-o text-red"></i>Produtos</a></li>
-                <li><a href="/produtos/categorias_produtos"><i class="fa fa-circle-o text-blue"></i>Categorias</a></li>
+                <li><a href="{{route('produtos.index')}}"><i class="fa fa-circle-o text-red"></i>Produtos</a></li>
+                <li><a href="{{route('produtos.categorias.index')}}"><i class="fa fa-circle-o text-blue"></i>Categorias</a></li>
               </ul>
             </li>
             <li><a href="/salas/"><i class="fa fa-institution"></i> <span>Salas</span></a></li>
