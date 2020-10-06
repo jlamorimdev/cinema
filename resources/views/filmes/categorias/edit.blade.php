@@ -18,7 +18,7 @@
 		</div>
 		@endif
 
-		<form method="POST" action="{{action('FilmeCategoriaController@update', $id)}}">
+		<form method="POST" action="{{action('FilmeCategoriaController@update', $categoria)}}">
 			@csrf
 			<input type="hidden" name="_method" value="PATCH">
 			<div class="form-group mb-3">

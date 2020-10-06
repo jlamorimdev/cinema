@@ -13,7 +13,7 @@
 		</div>
 		@endif
 
-		<form method="POST" enctype="multipart/form-data" action="{{action('FilmeController@update', $id)}}">
+		<form method="POST" enctype="multipart/form-data" action="{{action('FilmeController@update', $filme)}}">
 			@csrf
 			<input type="hidden" name="_method" value="PATCH">
 
@@ -63,7 +63,7 @@
 
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Salvar</button>
-				<a class="btn btn-danger" href="/filmes/categorias/">Voltar</a>
+				<a class="btn btn-danger" href="{{route('filmes.index')}}">Voltar</a>
 			</div>
 
 		</div>

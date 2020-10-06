@@ -49,7 +49,7 @@
 						<form method="POST" action="{{action('FilmeController@destroy', $filme->id)}}">
 			        @csrf
 			        <input type="hidden" name="_method" value="DELETE">
-			          <a href="{{URL::to('/filmes/filmes/'. $filme->id . '/edit')}}" class="btn btn-primary">Editar</a>
+			          <a href="{{route('filmes.edit', $filme)}}" class="btn btn-primary">Editar</a>
 			        <button class="btn btn-danger">Excluir </button>
 			      </form>
 					</td>

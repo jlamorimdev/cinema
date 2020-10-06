@@ -21,18 +21,19 @@ Route::prefix('filmes')->group(function () {
 
     Route::prefix('categorias')->group(function () {
         Route::get('/', 'FilmeCategoriaController@index')->name('categorias.index');
-        Route::get('show/{id}', 'FilmeCategoriaController@show')->name('categorias.show');
+        Route::get('show/{categoria}', 'FilmeCategoriaController@show')->name('categorias.show');
         Route::get('create', 'FilmeCategoriaController@create')->name('categorias.create');
-        Route::get('edit/{id}', 'FilmeCategoriaController@edit')->name('categorias.edit');
+        Route::get('edit/{categoria}', 'FilmeCategoriaController@edit')->name('categorias.edit');
         Route::post('store', 'FilmeCategoriaController@store')->name('categorias.store');
-        Route::put('update', 'FilmeCategoriaController@update')->name('categorias.update');
-        Route::put('destroy', 'FilmeCategoriaController@destroy')->name('categorias.destroy');
+        Route::put('update/{categoria}', 'FilmeCategoriaController@update')->name('categorias.update');
+        Route::delete('destroy/{categoria}', 'FilmeCategoriaController@destroy')->name('categorias.destroy');
     });
 
     Route::prefix('filmes')->group(function () {
         Route::get('/', 'FilmeController@index')->name('filmes.index');
         Route::get('show/{filme}', 'FilmeController@show')->name('filmes.show');
         Route::get('create', 'FilmeController@create')->name('filmes.create');
+        Route::get('edit/{filme}', 'FilmeController@edit')->name('filmes.edit');
         Route::post('store', 'FilmeController@store')->name('filmes.store');
         Route::put('update/{filme}', 'FilmeController@update')->name('filmes.update');
         Route::put('destroy/{filme}', 'FilmeController@destroy')->name('filmes.destroy');
